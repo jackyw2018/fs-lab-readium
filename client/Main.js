@@ -4,8 +4,9 @@ import Navbar from './Navbar';
 import Stories from './Stories';
 import SingleStory from './SingleStory';
 import Authors from './Authors';
+import SingleAuthor from './SingleAuthor';
 
-import { HashRouter, Route } from 'react-router-dom';
+import { HashRouter, Route, Redirect, Switch } from 'react-router-dom';
 
 export default class Main extends React.Component {
   render() {
@@ -18,10 +19,13 @@ export default class Main extends React.Component {
             </div>
             <Navbar />
           </div>
-          <Route exact path="/stories" component={Stories} />
-          <Route exact path="/" component={Stories} />
-          <Route exact path="/stories/:storyId" component={SingleStory} />
-          <Route exact path="/authors" component={Authors} />
+          <Switch>
+            <Route path="/stories" component={Stories} />
+            <Route path="/stories/:storyId" component={SingleStory} />
+            <Route path="/authors/:authorId" component={SingleAuthor} />
+            <Route path="/authors" component={Authors} />
+            <Route path="/" component={Stories} />
+          </Switch>
         </div>
       </HashRouter>
     );

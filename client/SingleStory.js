@@ -62,3 +62,4 @@ const Comment = props => {
 };
 
 export default SingleStory;
+export { Comment };

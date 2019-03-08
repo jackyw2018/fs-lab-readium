@@ -12,7 +12,7 @@ class Authors extends React.Component {
   componentDidMount() {
     axios
       .get('/api/authors')
-      .then(response => this.setState({ author: response.data }))
+      .then(response => this.setState({ authors: response.data }))
       .catch(error => console.log(error));
   }
 
